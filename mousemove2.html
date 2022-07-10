@@ -1,0 +1,76 @@
+mous<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body{
+            background-color: #000; 
+            position: relative; 
+            width: 100vw;
+            height: 100vh;
+            cursor: none !important;
+            }
+
+        h1{
+            color:#fff
+        }
+        .curser_item { position: absolute;
+         width: 100px; height: 100px;  background-color: red; left: 0; top: 0;
+         margin: -50px 0 0 -50px;
+         transition: all 1s ease-out;
+         }
+
+         button{font-style: 40px; font-weight: 700; background-color: #fff; color:red; padding: 20px; cursor: pointer;
+         transition: all .5s;}
+         button:hover {background-color: red; color:#fff; }
+    </style>
+
+    <script>
+        let h1;
+        let x =0;
+        let y = 0;
+        let curser_item;
+        let mx = 0; //mouseX
+        let my = 0;//mouseY
+        let speed = 0.06;  //움직임 속도
+
+        window.onload = function(){
+            // h1 = document.getElementsByTagName("h1")[0];
+            curser_item = document.getElementsByClassName("curser_item")[0];
+
+            window.addEventListener("click", mouseFunc, false);
+
+            function mouseFunc(e){
+                x = e.clientX;
+                y= e.clientY;
+                curser_item.style.transform = "translate("+ x + "px," + y + "px)";
+            }
+
+            // loop();
+        }
+        //마우스 움직이는 효과 
+
+
+        //움직임 부드럽게
+        // function loop(){  
+        //     // console.log(x,y);
+        //     mx += (x - mx)* speed; //공식
+        //     my += (y - my)* speed; //공식
+
+        //     h1.innerHTML = "x: " +x + " mx: " + mx ;
+
+        //     curser_item.style.transform = "translate("+ mx + "px," + my + "px)";
+        //     window.requestAnimationFrame(loop);
+        // }
+
+    </script>
+</head>
+<body>
+    <h1>test</h1>
+    <div class="curser_item"></div>
+    <button>버튼</button>
+</body>
+</html>

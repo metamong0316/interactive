@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 높이값 구하기</title>
+    <style>
+        body {
+            /* height: 10000px; */
+            background: linear-gradient(150deg,pink,blue, purple, black);
+            overflow-x: hidden;
+        }
+
+        h1 {
+            color:#FFF;
+
+        }
+        .progress {
+            width: 4px;
+            height: 140px;
+            position: fixed;
+            top: 40%;
+            left: 10px;
+background-color: #000;
+z-index: 10;
+        }
+        .bar {
+            position: absolute;
+            width: 4px;
+            height: 140px;
+            top: 0;
+            left: 0;
+            background-color: yellow;
+            z-index: 11;
+        }
+
+        section{
+            width: 300px;
+            background-color: rgba(0,0,0,.7);
+            margin: 30px auto;
+            padding: 20px;
+            z-index: 100;
+            position: relative;
+        }
+        p{
+            color:#FFF;
+            font-size: 15px;
+        }
+        .cloudWrap {
+        position: absolute;
+      }
+      .cloudWrap.cloud2 {
+        position: fixed;
+        top:-200px;
+        left: 700px;
+        z-index : 1000;
+      }
+        .cloudWrap img {
+        position: absolute;
+        width: 400px;
+        top:0; left: 0;
+        z-index: -1;
+      }
+
+      /* 구름 각각 위치 잡아주기 */
+      .cloudWrap img:nth-child(1) {
+        top : -10px;
+        left : 500px;
+      }
+      .cloudWrap img:nth-child(2) {
+        top : 580px;
+        left : 0px;
+      }
+      .cloudWrap img:nth-child(3) {
+        top : 180px;
+        left : 40px;
+      }
+      .cloudWrap img:nth-child(4) {
+        top : 2000px;
+        left : -100px;
+      }
+      .cloudWrap img:nth-child(5) {
+        top : 1200px;
+        left : 500px;
+      }
+      .cloudWrap img:nth-child(6) {
+        top : 2900px;
+        left : -140px;
+      }
+      .cloudWrap img:nth-child(7) {
+        top : 4000px;
+        left : 500px;
+      }
+      .cloudWrap img:nth-child(8) {
+        top : 5000px;
+        left : -190px;
+      }
+      .cloudWrap img:nth-child(9) {
+        top : 3500px;
+        left : 600px;
+      }
+    </style>
+
+    <script>
+        let scrollTop = 0;
+        let bar;
+        let cloudWrap;
+
+        window.onload = function(){
+            bar = document.getElementsByClassName("bar")[0];
+            cloudWrap = document.getElementsByClassName("cloudWrap")[0];
+        }
+
+        window.addEventListener("scroll", function(e){
+            scrollTop = document.documentElement.scrollTop;
+            // console.log(scrollTop);
+
+            let per = Math.ceil(scrollTop / (document.body.scrollHeight - window.outerHeight) * 100);
+            // console.log(per);
+
+            bar.style.height = per + "%"
+
+            cloudWrap.style.transform = "translate(0, " + scrollTop / 2 + "px)"
+        }, false)
+    </script>
+</head>
+<body>
+    <h1>스크롤</h1>
+    <div class="progress">
+        <span class="bar">
+        </span>
+    </div>
+
+    <div class="cloudWrap">
+        <img src="./cloud.png" ait="구름">
+        <img src="./cloud.png" ait="구름">
+        <img src="./cloud.png" ait="구름">
+        <img src="./cloud.png" ait="구름">
+        <img src="./cloud.png" ait="구름">
+        <img src="./cloud.png" ait="구름">
+        <img src="./cloud.png" ait="구름">
+        <img src="./cloud.png" ait="구름">
+        <img src="./cloud.png" ait="구름">
+    </div>
+    <section>
+        <h1>제목</h1>
+        <p>방황하였으며, 거친 얼마나 옷을 가진 우리 보배를 전인 용감하고 끓는다. 바이며, 붙잡아 품고 속에 곧 것은 청춘의 오아이스도 칼이다. 같은 인도하겠다는 오직 타오르고 노년에게서 보라. 가진 되는 천자만홍이 트고, 뭇 부패뿐이다. 불러 풍부하게 만물은 쓸쓸하랴? 그들은 바로 무한한 얼음과 따뜻한 인생의 같이 품었기 것이다.
+
+            것이다.보라, 따뜻한 되려니와, 그들은 그리하였는가? 두기 사랑의 동력은 소담스러운 이상을 이상, 착목한는 행복스럽고 인간이 황금시대다. 이상은 이상의 이상의 어디 것이다. 산야에 실로 대고, 끓는다. 새 살 지혜는 이 끓는 뜨거운지라, 얼음과 아름다우냐?
+            
+            이상의 되려니와, 얼음 품으며, 피다. 위하여 얼음이 꾸며 황금시대의 자신과 영원히 뭇 것이다. 못하다 가장 속에서 청춘은 심장은 부패뿐이다. 목숨이 하였으며, 할지니, 자신과 새가 끝까지 황금시대의 이는 설레는 쓸쓸하랴? 얼마나 커다란 우리 꽃 속잎나고, 구하지 천지는 곧 사막이다.
+        </p>
+    </section>
+
+    <section>
+        <h1>제목</h1>
+        <p>방황하였으며, 거친 얼마나 옷을 가진 우리 보배를 전인 용감하고 끓는다. 바이며, 붙잡아 품고 속에 곧 것은 청춘의 오아이스도 칼이다. 같은 인도하겠다는 오직 타오르고 노년에게서 보라. 가진 되는 천자만홍이 트고, 뭇 부패뿐이다. 불러 풍부하게 만물은 쓸쓸하랴? 그들은 바로 무한한 얼음과 따뜻한 인생의 같이 품었기 것이다.
+
+            것이다.보라, 따뜻한 되려니와, 그들은 그리하였는가? 두기 사랑의 동력은 소담스러운 이상을 이상, 착목한는 행복스럽고 인간이 황금시대다. 이상은 이상의 이상의 어디 것이다. 산야에 실로 대고, 끓는다. 새 살 지혜는 이 끓는 뜨거운지라, 얼음과 아름다우냐?
+            
+            이상의 되려니와, 얼음 품으며, 피다. 위하여 얼음이 꾸며 황금시대의 자신과 영원히 뭇 것이다. 못하다 가장 속에서 청춘은 심장은 부패뿐이다. 목숨이 하였으며, 할지니, 자신과 새가 끝까지 황금시대의 이는 설레는 쓸쓸하랴? 얼마나 커다란 우리 꽃 속잎나고, 구하지 천지는 곧 사막이다.
+        </p>
+    </section>
+
+    <section>
+        <h1>제목</h1>
+        <p>방황하였으며, 거친 얼마나 옷을 가진 우리 보배를 전인 용감하고 끓는다. 바이며, 붙잡아 품고 속에 곧 것은 청춘의 오아이스도 칼이다. 같은 인도하겠다는 오직 타오르고 노년에게서 보라. 가진 되는 천자만홍이 트고, 뭇 부패뿐이다. 불러 풍부하게 만물은 쓸쓸하랴? 그들은 바로 무한한 얼음과 따뜻한 인생의 같이 품었기 것이다.
+
+            것이다.보라, 따뜻한 되려니와, 그들은 그리하였는가? 두기 사랑의 동력은 소담스러운 이상을 이상, 착목한는 행복스럽고 인간이 황금시대다. 이상은 이상의 이상의 어디 것이다. 산야에 실로 대고, 끓는다. 새 살 지혜는 이 끓는 뜨거운지라, 얼음과 아름다우냐?
+            
+            이상의 되려니와, 얼음 품으며, 피다. 위하여 얼음이 꾸며 황금시대의 자신과 영원히 뭇 것이다. 못하다 가장 속에서 청춘은 심장은 부패뿐이다. 목숨이 하였으며, 할지니, 자신과 새가 끝까지 황금시대의 이는 설레는 쓸쓸하랴? 얼마나 커다란 우리 꽃 속잎나고, 구하지 천지는 곧 사막이다.
+        </p>
+    </section>
+
+    <section>
+        <h1>제목</h1>
+        <p>방황하였으며, 거친 얼마나 옷을 가진 우리 보배를 전인 용감하고 끓는다. 바이며, 붙잡아 품고 속에 곧 것은 청춘의 오아이스도 칼이다. 같은 인도하겠다는 오직 타오르고 노년에게서 보라. 가진 되는 천자만홍이 트고, 뭇 부패뿐이다. 불러 풍부하게 만물은 쓸쓸하랴? 그들은 바로 무한한 얼음과 따뜻한 인생의 같이 품었기 것이다.
+
+            것이다.보라, 따뜻한 되려니와, 그들은 그리하였는가? 두기 사랑의 동력은 소담스러운 이상을 이상, 착목한는 행복스럽고 인간이 황금시대다. 이상은 이상의 이상의 어디 것이다. 산야에 실로 대고, 끓는다. 새 살 지혜는 이 끓는 뜨거운지라, 얼음과 아름다우냐?
+            
+            이상의 되려니와, 얼음 품으며, 피다. 위하여 얼음이 꾸며 황금시대의 자신과 영원히 뭇 것이다. 못하다 가장 속에서 청춘은 심장은 부패뿐이다. 목숨이 하였으며, 할지니, 자신과 새가 끝까지 황금시대의 이는 설레는 쓸쓸하랴? 얼마나 커다란 우리 꽃 속잎나고, 구하지 천지는 곧 사막이다.
+        </p>
+    </section>
+
+    <section>
+        <h1>제목</h1>
+        <p>방황하였으며, 거친 얼마나 옷을 가진 우리 보배를 전인 용감하고 끓는다. 바이며, 붙잡아 품고 속에 곧 것은 청춘의 오아이스도 칼이다. 같은 인도하겠다는 오직 타오르고 노년에게서 보라. 가진 되는 천자만홍이 트고, 뭇 부패뿐이다. 불러 풍부하게 만물은 쓸쓸하랴? 그들은 바로 무한한 얼음과 따뜻한 인생의 같이 품었기 것이다.
+
+            것이다.보라, 따뜻한 되려니와, 그들은 그리하였는가? 두기 사랑의 동력은 소담스러운 이상을 이상, 착목한는 행복스럽고 인간이 황금시대다. 이상은 이상의 이상의 어디 것이다. 산야에 실로 대고, 끓는다. 새 살 지혜는 이 끓는 뜨거운지라, 얼음과 아름다우냐?
+            
+            이상의 되려니와, 얼음 품으며, 피다. 위하여 얼음이 꾸며 황금시대의 자신과 영원히 뭇 것이다. 못하다 가장 속에서 청춘은 심장은 부패뿐이다. 목숨이 하였으며, 할지니, 자신과 새가 끝까지 황금시대의 이는 설레는 쓸쓸하랴? 얼마나 커다란 우리 꽃 속잎나고, 구하지 천지는 곧 사막이다.
+        </p>
+    </section>
+
+    <section>
+        <h1>제목</h1>
+        <p>방황하였으며, 거친 얼마나 옷을 가진 우리 보배를 전인 용감하고 끓는다. 바이며, 붙잡아 품고 속에 곧 것은 청춘의 오아이스도 칼이다. 같은 인도하겠다는 오직 타오르고 노년에게서 보라. 가진 되는 천자만홍이 트고, 뭇 부패뿐이다. 불러 풍부하게 만물은 쓸쓸하랴? 그들은 바로 무한한 얼음과 따뜻한 인생의 같이 품었기 것이다.
+
+            것이다.보라, 따뜻한 되려니와, 그들은 그리하였는가? 두기 사랑의 동력은 소담스러운 이상을 이상, 착목한는 행복스럽고 인간이 황금시대다. 이상은 이상의 이상의 어디 것이다. 산야에 실로 대고, 끓는다. 새 살 지혜는 이 끓는 뜨거운지라, 얼음과 아름다우냐?
+            
+            이상의 되려니와, 얼음 품으며, 피다. 위하여 얼음이 꾸며 황금시대의 자신과 영원히 뭇 것이다. 못하다 가장 속에서 청춘은 심장은 부패뿐이다. 목숨이 하였으며, 할지니, 자신과 새가 끝까지 황금시대의 이는 설레는 쓸쓸하랴? 얼마나 커다란 우리 꽃 속잎나고, 구하지 천지는 곧 사막이다.
+        </p>
+    </section>
+</body>
+</html>
